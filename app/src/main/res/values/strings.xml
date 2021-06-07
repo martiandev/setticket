@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">SetTicket</string>
+
+    <!--Menu-->
+    <string name="action_settings">Settings</string>
+    <string name="action_search">Search</string>
+    <string name="action_about">About</string>
+
+    <!--Main Nav Bar-->
+    <string name="main_calendar">Calendar</string>
+    <string name="main_interested">Interested</string>
+    <string name="main_decline">Decline</string>
+    <string name="main_map">Near Me</string>
+    <!--Settings Nav Bar-->
+    <string name="settings_cat">Categories</string>
+    <string name="settings_map">Coordinates</string>
+    <string name="settings_security">Security</string>
+
+    <!--Splash-->
+    <string name="retrieve_token">Authenticating</string>
+    <string name="token_retrieved">Authentication success!!!</string>
+    <string name="token_failed">Failed to authenticate...</string>
+
+    <!--Coordinates-->
+    <string name="enable_coordinate">Enable Near Me </string>
+
+    <!--About-->
+    <string name="instructions">"Press search to request a list of events. Use Settings->Categories or Settings->Coordinates to filter results"</string>
+    <string name="predicthq">Powered by PredictHQ</string>
+    <string name="disclaimer">Disclaimer: This app is powered by a trial account on PredictHQ which will expire on June 12 2021. If search functions fail to run please register through https://signup.predicthq.com/ and replace the client id and client secret through Settings>Security option.</string>
+
+</resources>

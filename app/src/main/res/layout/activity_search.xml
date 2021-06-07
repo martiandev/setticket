@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_v_10"
+        app:layout_constraintGuide_percent="0.1"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_v_70"
+        app:layout_constraintGuide_percent="0.7"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_v_60"
+        app:layout_constraintGuide_percent="0.6"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_v_90"
+        app:layout_constraintGuide_percent="0.9"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_h_95"
+        app:layout_constraintGuide_percent="0.95"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_h_60"
+        app:layout_constraintGuide_percent="0.60"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_h_70"
+        app:layout_constraintGuide_percent="0.70"
+        android:orientation="horizontal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appbar"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/Theme.SetTicket.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/Theme.SetTicket.PopupOverlay" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+    <LinearLayout
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        app:layout_constraintLeft_toRightOf="@+id/gl_v_10"
+        app:layout_constraintRight_toLeftOf="@+id/gl_v_60"
+        android:id="@+id/ll_searchbar"
+        android:orientation="horizontal"
+        android:background="@drawable/st_text_search_box"
+        android:layout_width="0dp"
+        android:padding="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginLeft="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_height="wrap_content">
+        <EditText
+            android:id="@+id/et_search"
+            android:background="#00000000"
+            android:hint="Enter search text here"
+            android:maxLines="1"
+            android:textSize="16sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+    <Button
+        android:id="@+id/bt_search"
+        android:enabled="true"
+        android:clickable="true"
+        android:background="@drawable/st_text_search_box_selector"
+        app:layout_constraintTop_toBottomOf="@id/appbar"
+        app:layout_constraintBottom_toBottomOf="@id/ll_searchbar"
+        app:layout_constraintLeft_toRightOf="@+id/gl_v_60"
+        app:layout_constraintRight_toLeftOf="@+id/gl_v_90"
+
+        android:layout_width="0dp"
+        android:layout_marginTop="8dp"
+        android:textColor="@color/white"
+        android:text="Search"
+        android:layout_marginRight="8dp"
+        android:layout_height="0dp"/>
+    <TextView
+        android:id="@+id/tv_instructions"
+        app:layout_constraintStart_toStartOf="@+id/swiper"
+        app:layout_constraintEnd_toEndOf="@id/swiper"
+        app:layout_constraintTop_toTopOf="@id/swiper"
+        app:layout_constraintBottom_toBottomOf="@id/swiper"
+        android:textStyle="bold"
+        android:textSize="16sp"
+        android:textColor="#ccc"
+        android:layout_margin="8dp"
+        android:textAlignment="center"
+        android:gravity="center_horizontal"
+        android:text="@string/instructions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"/>
+    <com.lorentzos.flingswipe.SwipeFlingAdapterView
+        android:id="@+id/swiper"
+        android:background="@drawable/st_text_box"
+        android:layout_margin="8dp"
+        app:layout_constraintLeft_toRightOf="@+id/gl_v_10"
+        app:layout_constraintRight_toLeftOf="@+id/gl_v_90"
+        app:layout_constraintBottom_toTopOf="@+id/gl_h_70"
+        app:layout_constraintTop_toBottomOf="@+id/ll_searchbar"
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        app:rotation_degrees="16"
+        app:max_visible="4"
+        app:min_adapter_stack="6" />
+
+    <TextView
+        app:layout_constraintBottom_toTopOf="@+id/tv_right_instruction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/tv_left_instruction"
+        android:textColor="@color/main"
+        android:textStyle="bold"
+        android:text="Swipe to the right for events you are not interested"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/tv_right_instruction"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/main"
+        android:textStyle="bold"
+        android:text="Swipe to the left for events you are interested"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
