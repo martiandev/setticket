@@ -33,7 +33,6 @@ class EventsViewModel:ViewModel()
     var liked = MutableLiveData<List<EventEntity>>()
     var unliked = MutableLiveData<List<EventEntity>>()
 
-    var temp:ArrayList<Event> = ArrayList()
 
     //Utility
     fun getDate():String?
@@ -203,6 +202,7 @@ class EventsViewModel:ViewModel()
     }
     fun search(q:String?,offset:Int,context: Context)
     {
+        var db:STDatabase = STDatabase.get()!!
         var categories:ArrayList<Category> = instantiateCategories()
         var dateString:String? = getDate()
         this.retrofit= APIManager.get()!!.generateRetrofit(context)
@@ -221,20 +221,59 @@ class EventsViewModel:ViewModel()
         call.enqueue(object : Callback<SearchResponse>
         {
             override fun onResponse(call: Call<SearchResponse>, response: Response<SearchResponse>) {
+
                 var res:SearchResults = SearchResults()
                 if(response.body()!=null)
                 {
 
-                    res.next = offset+10
+                    res.next = offset+9
+                    var idList:ArrayList<String> = ArrayList()
+                    if(response.body()!!.results.size>0)
+                    {
+                        res.isSuccess=true
+                        for(ev in response.body()!!.results)
+                        {
+                            idList.add(ev.id!!)
+                        }
+                        db.getEventDAO()
+                            .get(idList)
+                            .subscribeOn(Schedulers.io())
+                            .observeOn(AndroidSchedulers.mainThread())
+                            .subscribe(
+                                {
+
+                                    for(ev in response.body()!!.results)
+                                    {
+                                        var found:Boolean = false
+                                        for(ee in it)
+                                        {
+                                            if(ee.id.equals(ev.id))
+                                            {
+                                                found=true
+                                                break
+                                            }
+                                        }
+                                        if(!found)
+                                        {
+                                            res.results.add(ev)
+                                        }
+                                    }
+                                    searchResult.postValue(res)
+
+                                },
+                                {
+
+                                }
+                            )
+                    }
+                    else
+                    {
+                        searchResult.postValue(res)
+                    }
 
 
-
-
-
-
-                    res.results = response.body()!!.results.asList()
                 }
-                searchResult.postValue(res)
+
 
             }
             override fun onFailure(call: Call<SearchResponse>, t: Throwable) {

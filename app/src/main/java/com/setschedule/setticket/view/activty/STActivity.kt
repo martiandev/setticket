@@ -83,13 +83,13 @@ class STActivity:AppCompatActivity (){
             true
         }
         menu = bottom_nav!!.menu
-        menu!!.add(Menu.NONE, 0, Menu.NONE, getString(R.string.main_calendar))
-            .setIcon(R.drawable.calendar);
-        menu!!.add(Menu.NONE,1, Menu.NONE,  getString(R.string.main_map))
-            .setIcon(R.drawable.map);
-        menu!!.add(Menu.NONE,2, Menu.NONE, getString(R.string.main_interested))
+//        menu!!.add(Menu.NONE, 0, Menu.NONE, getString(R.string.main_calendar))
+//            .setIcon(R.drawable.calendar);
+//        menu!!.add(Menu.NONE,1, Menu.NONE,  getString(R.string.main_map))
+//            .setIcon(R.drawable.map);
+        menu!!.add(Menu.NONE,0, Menu.NONE, getString(R.string.main_interested))
             .setIcon(R.drawable.accept)
-        menu!!.add(Menu.NONE,3, Menu.NONE,getString(R.string.main_decline))
+        menu!!.add(Menu.NONE,1, Menu.NONE,getString(R.string.main_decline))
             .setIcon(R.drawable.unlike)
     }
 
@@ -97,8 +97,8 @@ class STActivity:AppCompatActivity (){
     {
         vp = findViewById(R.id.vp_main)
         var list:ArrayList<Fragment> = ArrayList()
-        list.add(STMapFragment())
-        list.add(MapFragment())
+//        list.add(STMapFragment())
+//        list.add(MapFragment())
         list.add(LikeFragment())
         list.add(UnlikeFragment())
         adapter = HomePageAdapter(this,list)

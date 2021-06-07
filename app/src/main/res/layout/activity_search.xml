@@ -22,9 +22,22 @@
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
+
     <androidx.constraintlayout.widget.Guideline
         android:id="@+id/gl_v_90"
         app:layout_constraintGuide_percent="0.9"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_v_5"
+        app:layout_constraintGuide_percent="0.05"
+        android:orientation="vertical"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/gl_v_95"
+        app:layout_constraintGuide_percent="0.95"
         android:orientation="vertical"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"/>
@@ -69,15 +82,13 @@
     </com.google.android.material.appbar.AppBarLayout>
     <LinearLayout
         app:layout_constraintTop_toBottomOf="@id/appbar"
-        app:layout_constraintLeft_toRightOf="@+id/gl_v_10"
-        app:layout_constraintRight_toLeftOf="@+id/gl_v_60"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toLeftOf="@+id/gl_v_70"
         android:id="@+id/ll_searchbar"
         android:orientation="horizontal"
         android:background="@drawable/st_text_search_box"
         android:layout_width="0dp"
         android:padding="8dp"
-        android:layout_marginTop="8dp"
-        android:layout_marginLeft="8dp"
         android:layout_marginBottom="8dp"
         android:layout_height="wrap_content">
         <EditText
@@ -97,14 +108,12 @@
         android:background="@drawable/st_text_search_box_selector"
         app:layout_constraintTop_toBottomOf="@id/appbar"
         app:layout_constraintBottom_toBottomOf="@id/ll_searchbar"
-        app:layout_constraintLeft_toRightOf="@+id/gl_v_60"
-        app:layout_constraintRight_toLeftOf="@+id/gl_v_90"
+        app:layout_constraintLeft_toRightOf="@+id/gl_v_70"
+        app:layout_constraintRight_toRightOf="parent"
 
         android:layout_width="0dp"
-        android:layout_marginTop="8dp"
         android:textColor="@color/white"
         android:text="Search"
-        android:layout_marginRight="8dp"
         android:layout_height="0dp"/>
     <TextView
         android:id="@+id/tv_instructions"
@@ -124,10 +133,13 @@
     <com.lorentzos.flingswipe.SwipeFlingAdapterView
         android:id="@+id/swiper"
         android:background="@drawable/st_text_box"
-        android:layout_margin="8dp"
-        app:layout_constraintLeft_toRightOf="@+id/gl_v_10"
-        app:layout_constraintRight_toLeftOf="@+id/gl_v_90"
-        app:layout_constraintBottom_toTopOf="@+id/gl_h_70"
+        android:layout_marginLeft="8dp"
+        android:layout_marginRight="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintLeft_toRightOf="@+id/gl_v_5"
+        app:layout_constraintRight_toLeftOf="@+id/gl_v_95"
+        app:layout_constraintBottom_toTopOf="@+id/tv_right_instruction"
         app:layout_constraintTop_toBottomOf="@+id/ll_searchbar"
         xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -135,6 +147,7 @@
         android:layout_height="0dp"
         app:rotation_degrees="16"
         app:max_visible="4"
+
         app:min_adapter_stack="6" />
 
     <TextView

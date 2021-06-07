@@ -36,9 +36,16 @@ class Search:MenuActivity(),SwipeFlingAdapterView.onFlingListener
             bt_search!!.isEnabled = true
             bt_search!!.text = "Search"
             offset = it.next
-            if (it.results.size < 1)
+            if (it.results.size ==0)
             {
-                tv_instructions!!.text = "No Events Found"
+                if(it.isSuccess==false)
+                {
+                    tv_instructions!!.text = "No Events Found"
+                }
+                else
+                {
+                    search()
+                }
             }
             else
             {
@@ -67,7 +74,6 @@ class Search:MenuActivity(),SwipeFlingAdapterView.onFlingListener
 
     fun search()
     {
-        Log.i("SEARCH-ss",et_search!!.text.toString()+" vs "+q)
         list.clear()
         eventAdapter!!.notifyDataSetChanged()
         swiper!!.isEnabled = false

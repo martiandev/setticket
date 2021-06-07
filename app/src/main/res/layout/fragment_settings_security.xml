@@ -47,8 +47,9 @@
         android:layout_height="wrap_content"/>
 
     <TextView
-        android:background="@color/black"
-        android:textColor="@color/white"
+        android:background="#e8e8e8"
+        android:paddingLeft="8dp"
+        android:textColor="@color/main"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         android:paddingBottom="12dp"
